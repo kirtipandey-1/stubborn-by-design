@@ -297,10 +297,21 @@
       user-select: none;
     }
     .svc-icon {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
       display: block;
-      filter: grayscale(1);
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--gold);
+      opacity: 0.75;
+    }
+    .svc-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
     .svc h3 {
       font-family: 'Cormorant Garamond', serif;
@@ -854,25 +865,25 @@
     <div class="services-grid">
       <div class="svc reveal d1">
         <span class="svc-num">01</span>
-        <span class="svc-icon">🌐</span>
+        <span class="svc-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
         <h3>Website Building & Hosting</h3>
         <p>A custom-designed site built around your business — not a template. We handle everything: design, development, and hosting, so you can stay focused on what you do.</p>
       </div>
       <div class="svc reveal d2">
         <span class="svc-num">02</span>
-        <span class="svc-icon">📣</span>
+        <span class="svc-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12h-4M6 12H2M12 6V2M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg></span>
         <h3>Ad Campaigns & Marketing</h3>
         <p>Targeted campaigns on Meta and Google that reach real customers in your area. We build it, run it, and show you exactly what's working.</p>
       </div>
       <div class="svc reveal d3">
         <span class="svc-num">03</span>
-        <span class="svc-icon">✍️</span>
+        <span class="svc-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
         <h3>Content Creation & Marketing</h3>
         <p>Photos, copy, social posts, reels, and strategy. Content that actually represents your business — and keeps your audience coming back.</p>
       </div>
       <div class="svc full reveal d4">
         <span class="svc-num">04</span>
-        <span class="svc-icon">🎨</span>
+        <span class="svc-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" stroke="none"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" stroke="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.28 0 .5-.22.5-.5 0-.28-.13-.52-.33-.72-.45-.45-.72-1.07-.72-1.78C11.45 17.44 12 16.5 12 16.5c.9 0 1.7-.37 2.28-.97.58-.6.93-1.41.93-2.28 0-.93-.38-1.77-.98-2.38-.6-.61-1.42-.97-2.33-.97-.97 0-1.84.43-2.45 1.12-.52.6-.85 1.38-.85 2.23 0 .85.28 1.62.75 2.23.46.59.72 1.35.72 2.02 0 .83-.43 1.55-1.07 1.96C4.74 18.46 2 15.47 2 12 2 6.48 6.48 2 12 2z"/></svg></span>
         <h3>Design & Branding</h3>
         <p>Logos, color palettes, brand guidelines, and print-ready materials. Whether you're starting from scratch or refreshing what you have, we'll make it consistent, sharp, and unmistakably yours.</p>
       </div>
