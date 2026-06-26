@@ -478,6 +478,105 @@
       text-transform: uppercase;
     }
 
+    /* funnel chart */
+    .funnel-wrap {
+      margin-top: 3rem;
+      width: 100%;
+    }
+    .funnel-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(242,237,228,0.35);
+      margin-bottom: 2rem;
+    }
+    .funnel-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .funnel-row {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+    .funnel-label-wrap {
+      width: 130px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .funnel-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(242,237,228,0.45);
+      display: block;
+    }
+    .funnel-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .funnel-bar-track {
+      flex: 1;
+      height: 36px;
+      background: rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .funnel-bar-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0%;
+      background: linear-gradient(to right, var(--gold), var(--gold-light));
+      transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .funnel-bar-fill.f1 { opacity: 1; }
+    .funnel-bar-fill.f2 { opacity: 0.82; }
+    .funnel-bar-fill.f3 { opacity: 0.62; }
+    .funnel-bar-fill.f4 { opacity: 0.42; }
+    .funnel-connector {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      padding: 0.15rem 0;
+    }
+    .funnel-connector-label {
+      width: 130px;
+      flex-shrink: 0;
+      text-align: right;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(242,237,228,0.2);
+    }
+    .funnel-connector-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(242,237,228,0.07);
+      position: relative;
+    }
+    .funnel-connector-pct {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      color: rgba(242,237,228,0.2);
+      white-space: nowrap;
+      padding-right: 4px;
+    }
+    .chart-note {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(242,237,228,0.3);
+      margin-top: 1.25rem;
+    }
+
     .results-disclaimer {
       margin-top: 2rem;
       font-size: 0.68rem;
@@ -856,30 +955,67 @@
       </div>
     </div>
 
-    <div class="chart-wrap reveal d2">
-      <p class="chart-title">Weekly reach — 12-week campaign window</p>
-      <div class="bars" id="barChart">
-        <div class="bar"><div class="bar-fill" data-h="14"></div></div>
-        <div class="bar"><div class="bar-fill" data-h="22"></div></div>
-        <div class="bar"><div class="bar-fill" data-h="30"></div></div>
-        <div class="bar"><div class="bar-fill" data-h="38"></div></div>
-        <div class="bar"><div class="bar-fill" data-h="47"></div></div>
-        <div class="bar"><div class="bar-fill" data-h="55"></div></div>
-        <div class="bar"><div class="bar-fill" data-h="63"></div></div>
-        <div class="bar"><div class="bar-fill" data-h="72"></div></div>
-        <div class="bar"><div class="bar-fill" data-h="80"></div></div>
-        <div class="bar"><div class="bar-fill" data-h="90"></div></div>
-        <div class="bar"><div class="bar-fill" data-h="100"></div></div>
-        <div class="bar"><div class="bar-fill" data-h="96"></div></div>
+    <div class="chart-wrap reveal d2" id="funnelChart">
+      <p class="funnel-title">Campaign reach — 90 days · one client account</p>
+      <div class="funnel-rows">
+
+        <div class="funnel-row">
+          <div class="funnel-label-wrap">
+            <span class="funnel-label">Impressions</span>
+            <span class="funnel-num">671,651</span>
+          </div>
+          <div class="funnel-bar-track">
+            <div class="funnel-bar-fill f1" data-w="100"></div>
+          </div>
+        </div>
+
+        <div class="funnel-connector">
+          <div class="funnel-connector-label"></div>
+          <div class="funnel-connector-line"><span class="funnel-connector-pct">34.3% converted to unique reach</span></div>
+        </div>
+
+        <div class="funnel-row">
+          <div class="funnel-label-wrap">
+            <span class="funnel-label">Accounts Reached</span>
+            <span class="funnel-num">230,183</span>
+          </div>
+          <div class="funnel-bar-track">
+            <div class="funnel-bar-fill f2" data-w="76"></div>
+          </div>
+        </div>
+
+        <div class="funnel-connector">
+          <div class="funnel-connector-label"></div>
+          <div class="funnel-connector-line"><span class="funnel-connector-pct">10.4% visited profile</span></div>
+        </div>
+
+        <div class="funnel-row">
+          <div class="funnel-label-wrap">
+            <span class="funnel-label">Profile Visits</span>
+            <span class="funnel-num">23,918</span>
+          </div>
+          <div class="funnel-bar-track">
+            <div class="funnel-bar-fill f3" data-w="46"></div>
+          </div>
+        </div>
+
+        <div class="funnel-connector">
+          <div class="funnel-connector-label"></div>
+          <div class="funnel-connector-line"><span class="funnel-connector-pct">4.5% tapped the link</span></div>
+        </div>
+
+        <div class="funnel-row">
+          <div class="funnel-label-wrap">
+            <span class="funnel-label">Link Taps</span>
+            <span class="funnel-num">1,066</span>
+          </div>
+          <div class="funnel-bar-track">
+            <div class="funnel-bar-fill f4" data-w="20"></div>
+          </div>
+        </div>
+
       </div>
-      <div class="bar-months">
-        <div class="bar-mo">Wk 1</div><div class="bar-mo">Wk 2</div>
-        <div class="bar-mo">Wk 3</div><div class="bar-mo">Wk 4</div>
-        <div class="bar-mo">Wk 5</div><div class="bar-mo">Wk 6</div>
-        <div class="bar-mo">Wk 7</div><div class="bar-mo">Wk 8</div>
-        <div class="bar-mo">Wk 9</div><div class="bar-mo">Wk 10</div>
-        <div class="bar-mo">Wk 11</div><div class="bar-mo">Wk 12</div>
-      </div>
+      <p class="chart-note">94.9% of accounts reached were non-followers · new audiences, not existing fans</p>
     </div>
 
     <p class="results-disclaimer reveal">Results shown are from an active client account. Individual results vary by industry, audience size, budget, and campaign duration. This is not a guarantee of performance.</p>
@@ -1008,18 +1144,17 @@
   }, { threshold: 0.12 });
   reveals.forEach(r => revealObs.observe(r));
 
-  // Animate bars when chart enters view
-  const chart = document.getElementById('barChart');
-  const fills = chart.querySelectorAll('.bar-fill');
+  // Animate funnel bars when chart enters view
+  const funnel = document.getElementById('funnelChart');
   const chartObs = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
-      fills.forEach(f => {
-        f.style.height = f.dataset.h + '%';
+      funnel.querySelectorAll('.funnel-bar-fill').forEach((f, i) => {
+        setTimeout(() => { f.style.width = f.dataset.w + '%'; }, i * 180);
       });
       chartObs.disconnect();
     }
-  }, { threshold: 0.3 });
-  chartObs.observe(chart);
+  }, { threshold: 0.2 });
+  chartObs.observe(funnel);
 
   // Trigger hero reveal immediately
   document.querySelectorAll('.hero .reveal').forEach(el => {
