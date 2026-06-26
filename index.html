@@ -396,6 +396,10 @@
       background: rgba(255,255,255,0.08);
       margin-bottom: 3.5rem;
     }
+    .stat-box.highlight {
+      grid-column: 1 / -1;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
 
     .stat-box {
       background: var(--ink);
@@ -953,6 +957,11 @@
         <div class="stat-label">External Link Taps</div>
         <div class="stat-delta">Direct traffic to destination</div>
       </div>
+      <div class="stat-box highlight">
+        <div class="stat-num">2,000<sup>%</sup></div>
+        <div class="stat-label">Sales Increase</div>
+        <div class="stat-delta">Squarespace revenue — start of engagement to now</div>
+      </div>
     </div>
 
     <div class="chart-wrap reveal d2" id="funnelChart">
@@ -1144,17 +1153,23 @@
   }, { threshold: 0.12 });
   reveals.forEach(r => revealObs.observe(r));
 
-  // Animate funnel bars when chart enters view
-  const funnel = document.getElementById('funnelChart');
+  // Animate funnel bars when chart enters view (also fires if already visible)
+  const funnelEl = document.getElementById('funnelChart');
+  function animateFunnel() {
+    funnelEl.querySelectorAll('.funnel-bar-fill').forEach((f, i) => {
+      setTimeout(() => { f.style.width = f.dataset.w + '%'; }, i * 200);
+    });
+  }
   const chartObs = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
-      funnel.querySelectorAll('.funnel-bar-fill').forEach((f, i) => {
-        setTimeout(() => { f.style.width = f.dataset.w + '%'; }, i * 180);
-      });
+      animateFunnel();
       chartObs.disconnect();
     }
-  }, { threshold: 0.2 });
-  chartObs.observe(funnel);
+  }, { threshold: 0.1 });
+  chartObs.observe(funnelEl);
+  // Fire immediately if already in viewport on load
+  const r = funnelEl.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) animateFunnel();
 
   // Trigger hero reveal immediately
   document.querySelectorAll('.hero .reveal').forEach(el => {
