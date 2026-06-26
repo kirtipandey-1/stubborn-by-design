@@ -61,9 +61,15 @@
     }
 
     .nav-mule {
-      font-size: 1.6rem;
-      line-height: 1;
-      filter: grayscale(1) contrast(2);
+      width: 2rem;
+      height: 2rem;
+      color: var(--ink);
+      flex-shrink: 0;
+    }
+    .nav-mule img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .nav-name {
@@ -180,7 +186,7 @@
     .hero-logo-block {
       margin-bottom: 2rem;
     }
-    .hero-mule { font-size: 3rem; display: block; line-height: 1; margin-bottom: 1rem; filter: grayscale(1) contrast(2); }
+    .hero-mule { display: block; width: 4rem; height: 4rem; margin: 0 auto 1rem; color: var(--ink); }
     .hero-logo-block h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.8rem, 7vw, 5.5rem);
@@ -789,7 +795,7 @@
 <!-- ── NAV ── -->
 <nav>
   <a href="#home" class="nav-brand">
-    <span class="nav-mule">🫏</span>
+    <span class="nav-mule"><img src="assets/mule.svg" alt="mule"></span>
     <span class="nav-name">Stubborn<span>by Design</span></span>
   </a>
   <ul class="nav-links">
@@ -815,7 +821,7 @@
       <p class="hero-eyebrow">Ashburn · Sterling · Leesburg · Northern Virginia</p>
 
       <div class="hero-logo-block">
-        <span class="hero-mule">🫏</span>
+        <img class="hero-mule" src="assets/mule.svg" alt="mule">
         <h1>Stubborn<strong>by Design</strong></h1>
       </div>
 
